@@ -1,20 +1,30 @@
-import MessagesScreen from "./app/screens/MessagesScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-import React from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import Screen from "./app/components/Screen";
-import Icon from "./app/components/Icon";
-import ListItem from "./app/components/ListItem";
-import AccountScreen from "./app/screens/AccountScreen";
-import ListingsScreen from "./app/screens/ListingsScreen";
+import AppPicker from "./app/components/AppPicker";
 import AppTextInput from "./app/components/AppTextInput";
+import Screen from "./app/components/Screen";
+import { useState } from "react";
+
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Cameras", value: 3 },
+];
 
 export default function App() {
+  const [category, setCategory] = useState(categories[0]);
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Screen>
-        <AppTextInput icon="email" placeholder="Username" />
+        <AppPicker
+          selectedItem={category}
+          onSelectItem={(item) => setCategory(item)}
+          items={categories}
+          icon="apps"
+          placeholder="Category"
+        />
+        <AppTextInput icon="email" placeholder="Email" />
       </Screen>
     </GestureHandlerRootView>
   );
