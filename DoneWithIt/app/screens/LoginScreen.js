@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import { loginValidationSchema } from "../validations/authValidation";
 
+import { loginValidationSchema } from "../validations/authValidation";
 import Screen from "../components/Screen";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 
