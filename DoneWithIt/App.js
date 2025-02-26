@@ -7,11 +7,13 @@ import { useState } from "react";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ListEditScreen from "./app/screens/ListEditScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
+import AccountScreen from "./app/screens/AccountScreen";
 
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ListEditScreen />
+      <AccountScreen />
     </GestureHandlerRootView>
   );
 }
