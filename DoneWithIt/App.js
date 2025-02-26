@@ -13,7 +13,7 @@ import AccountScreen from "./app/screens/AccountScreen";
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <AccountScreen />
+      <ListEditScreen />
     </GestureHandlerRootView>
   );
 }
