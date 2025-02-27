@@ -11,7 +11,7 @@ export const registerValidationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label("Password"),
 });
 
-export const listEditValidationSchma = Yup.object().shape({
+export const listEditValidationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),

@@ -1,25 +1,57 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-import { listEditValidationSchma } from "../validations/authValidation";
+import { listEditValidationSchema } from "../validations/authValidation";
 import {
-  AppForm,
-  AppFormField as FormField,
-  AppFormPicker as Picker,
+  Form,
+  FormField,
+  FormPicker as Picker,
   SubmitButton,
 } from "../components/forms";
 import Screen from "../components/Screen";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Camera", value: 3 },
+  {
+    label: "Furniture",
+    value: 1,
+    backgroundColor: "#fc5c65",
+    icon: "floor-lamp",
+  },
+  {
+    label: "Clothing",
+    value: 2,
+    backgroundColor: "#2bcbba",
+    icon: "shoe-heel",
+  },
+  { label: "Cameras", value: 3, backgroundColor: "#fed330", icon: "camera" },
+  { label: "Cars", value: 4, backgroundColor: "#fd9644", icon: "car" },
+  { label: "Games", value: 5, backgroundColor: "#26de81", icon: "cards" },
+  { label: "Sports", value: 6, backgroundColor: "#45aaf2", icon: "basketball" },
+  {
+    label: "Movies & Music",
+    value: 7,
+    backgroundColor: "#4b7bec",
+    icon: "headphones",
+  },
+  {
+    label: "Books",
+    value: 8,
+    backgroundColor: "#9d00ff",
+    icon: "book",
+  },
+  {
+    label: "Other",
+    value: 9,
+    backgroundColor: "#708090",
+    icon: "",
+  },
 ];
 
-function ListEditScreen(props) {
+function ListEditScreen() {
   return (
     <Screen style={styles.container}>
-      <AppForm
+      <Form
         initialValues={{
           title: "",
           price: "",
@@ -27,7 +59,7 @@ function ListEditScreen(props) {
           category: null,
         }}
         onSubmit={(values) => console.log(values)}
-        validationSchema={listEditValidationSchma}
+        validationSchema={listEditValidationSchema}
       >
         <FormField maxLength={255} name="title" placeholder="Title" />
         <FormField
@@ -40,6 +72,8 @@ function ListEditScreen(props) {
         <Picker
           items={categories}
           name="category"
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
           width="50%"
         />
@@ -51,7 +85,7 @@ function ListEditScreen(props) {
           placeholder="Description"
         />
         <SubmitButton title="Post" />
-      </AppForm>
+      </Form>
     </Screen>
   );
 }

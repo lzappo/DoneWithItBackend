@@ -3,14 +3,14 @@ import { Image, StyleSheet } from "react-native";
 
 import { loginValidationSchema } from "../validations/authValidation";
 import Screen from "../components/Screen";
-import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import { Form, AppFormField, SubmitButton } from "../components/forms";
 
 function LoginScreen(props) {
   return (
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
 
-      <AppForm
+      <Form
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={loginValidationSchema}
@@ -36,7 +36,7 @@ function LoginScreen(props) {
         />
 
         <SubmitButton title="Login" />
-      </AppForm>
+      </Form>
     </Screen>
   );
 }
