@@ -1,31 +1,27 @@
+import { useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { useEffect, useState } from "react";
-import * as ImagePicker from "expo-image-picker";
 
-import ListEditScreen from "./app/screens/ListEditScreen";
-import MessagesScreen from "./app/screens/MessagesScreen";
-import { Button, Image } from "react-native";
+import ImageInputList from "./app/components/ImageInputList";
 import Screen from "./app/components/Screen";
-import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
-  const [imageUri, setImageUri] = useState(null);
+  const [imageUris, setImageUris] = useState([]);
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!granted) alert("You need to enable permission to access the library");
+  const handleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
   };
 
-  useEffect(() => {
-    requestPermission();
-  }, []);
+  const handleRemove = (uri) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+  };
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Screen>
-        <ImageInput
-          imageUri={imageUri}
-          onChangeImage={(uri) => setImageUri(uri)}
+        <ImageInputList
+          imageUris={imageUris}
+          onAddImage={handleAdd}
+          onRemoveImage={handleRemove}
         />
       </Screen>
     </GestureHandlerRootView>
