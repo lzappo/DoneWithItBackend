@@ -1,15 +1,16 @@
-import React from "react";
 import { StyleSheet } from "react-native";
 
-import { listEditValidationSchema } from "../validations/authValidation";
+import CategoryPickerItem from "../components/CategoryPickerItem";
+import Screen from "../components/Screen";
 import {
   Form,
   FormField,
   FormPicker as Picker,
   SubmitButton,
 } from "../components/forms";
-import Screen from "../components/Screen";
-import CategoryPickerItem from "../components/CategoryPickerItem";
+import FormImagePicker from "../components/forms/FormImagePicker";
+import useLocation from "../hooks/useLocation";
+import { listEditValidationSchema } from "../validations/authValidation";
 
 const categories = [
   {
@@ -48,7 +49,9 @@ const categories = [
   },
 ];
 
-function ListEditScreen() {
+function ListingEditScreen() {
+  const location = useLocation();
+
   return (
     <Screen style={styles.container}>
       <Form
@@ -57,10 +60,12 @@ function ListEditScreen() {
           price: "",
           description: "",
           category: null,
+          images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(values, location)}
         validationSchema={listEditValidationSchema}
       >
+        <FormImagePicker name="images" />
         <FormField maxLength={255} name="title" placeholder="Title" />
         <FormField
           keyboardType="numeric"
@@ -96,4 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListEditScreen;
+export default ListingEditScreen;

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import ImageInput from "./ImageInput";
+import * as Location from "expo-location";
 
 function ImageInputList({ imageUris = [], onRemoveImage, onAddImage }) {
   const scrollView = useRef();
