@@ -1,17 +1,10 @@
-import React, { useRef, useState } from "react";
-import {
-  FlatList,
-  SafeAreaView,
-  StyleSheet,
-  Platform,
-  StatusBar,
-  View,
-} from "react-native";
+import { useRef, useState } from "react";
+import { FlatList, StyleSheet } from "react-native";
 import ListItem from "../components/lists/ListItem";
 
 import Screen from "../components/Screen";
-import ListItemSeparator from "../components/lists/ListItemSeparator";
 import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
+import ListItemSeparator from "../components/lists/ListItemSeparator";
 
 const initialMessages = [
   {
@@ -31,7 +24,6 @@ const initialMessages = [
 function MessagesScreen(props) {
   const [messages, setMessages] = useState(initialMessages);
   const [refreshing, setRefreshing] = useState(false);
-  const swipeableRow = useRef(null);
 
   const handleDelete = (message) => {
     setMessages(messages.filter((m) => m.id !== message.id));

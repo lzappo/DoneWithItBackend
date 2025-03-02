@@ -1,10 +1,9 @@
-import React, { useRef, useEffect } from "react";
-import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 import ReanimatedSwipeable from "react-native-gesture-handler/ReanimatedSwipeable";
 
-import AppText from "../Text";
 import colors from "../../config/colors";
+import AppText from "../Text";
 
 function ListItem({
   title,

@@ -3,7 +3,7 @@ import { Image, StyleSheet } from "react-native";
 
 import { loginValidationSchema } from "../validations/authValidation";
 import Screen from "../components/Screen";
-import { Form, AppFormField, SubmitButton } from "../components/forms";
+import { Form, FormField, SubmitButton } from "../components/forms";
 
 function LoginScreen(props) {
   return (
@@ -15,7 +15,7 @@ function LoginScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={loginValidationSchema}
       >
-        <AppFormField
+        <FormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="email"
@@ -25,7 +25,7 @@ function LoginScreen(props) {
           textContentType="emailAddress"
         />
 
-        <AppFormField
+        <FormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="lock"
