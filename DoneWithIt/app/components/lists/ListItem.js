@@ -16,9 +16,9 @@ function ListItem({
   return (
     <ReanimatedSwipeable
       renderRightActions={renderRightActions}
-      overshootRight={true}
+      overshootRight={false}
       dragOffsetFromRightEdge={5}
-      friction={1}
+      friction={2}
     >
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>

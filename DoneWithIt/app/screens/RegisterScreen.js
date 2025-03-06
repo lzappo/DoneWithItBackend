@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { registerValidationSchema } from "../validations/authValidation";
 
 import Screen from "../components/Screen";
-import { Form, AppFormField, SubmitButton } from "../components/forms";
+import { Form, FormField, SubmitButton } from "../components/forms";
 
 function RegisterScreen(props) {
   return (
@@ -13,13 +13,13 @@ function RegisterScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={registerValidationSchema}
       >
-        <AppFormField
+        <FormField
           icon="account"
           name="name"
           placeholder="Name"
           autoCorrect={false}
         />
-        <AppFormField
+        <FormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="email"
@@ -28,7 +28,7 @@ function RegisterScreen(props) {
           placeholder="Email"
           textContentType="emailAddress"
         />
-        <AppFormField
+        <FormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="lock"
