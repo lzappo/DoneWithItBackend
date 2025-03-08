@@ -15,6 +15,7 @@
     "@react-navigation/drawer": "^5.10.0",
     "@react-navigation/native": "^5.3.2",
     "@react-navigation/stack": "^5.10.0",
+    "apisauce": "^1.1.1",
     "expo": "~52.0.36",
     "expo-constants": "~17.0.7",
     "expo-image-picker": "~16.0.6",
