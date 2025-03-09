@@ -9,6 +9,7 @@ import routes from "../navigation/routes";
 import Screen from "../components/Screen";
 import AppText from "../components/Text";
 import Button from "../components/Button";
+import useApi from "../hooks/useApi";
 
 // const listings = [
 //   {
@@ -26,24 +27,16 @@ import Button from "../components/Button";
 // ];
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadLisitngs,
+  } = useApi(listingsApi.getListings);
 
   useEffect(() => {
     loadLisitngs();
   }, []);
-
-  const loadLisitngs = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
-
-    if (!response.ok) return setError(true);
-
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <Screen style={styles.screen}>
